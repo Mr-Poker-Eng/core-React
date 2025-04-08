@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myDivRoot"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<!-- <script type="text/babel"></script> -->
+<script type="text/babel">
+    // console.log(React);
+// console.log(ReactDOM);
+
+const myReactElement = React.createElement('div', {name: "munim"}, React.createElement('p', {nestedName: "abdul aziz"}, 'hello React Create Element'))
+
+ const myJsxElement = (
+     <div>
+         <p>hello React Create Element</p>
+     </div>
+ );
+
+const MyFirstFN = (props) => {
+    console.log("My props: ", props.children);
+    return (
+        <div>
+            <p>hello React Create Element from Name: {props.mYname}</p>
+            {props.children}
+        </div>
+    );
+};
+
+const Age = (props) => {
+    return <p>I am {props.age} years old</p>;
+};
+
+
+//console.log(myJsxElement);
+//console.log(MyFirstFN());
+
+// console.log(myReactElement.props.name);
+
+//console.log(myReactElement);
+
+const Counter = () => {
+
+    const [myCounter, setMyCounter] = React.useState(0);
+
+    //console.log(reactState[0]);
+    //console.log(reactState[1]);
+
+    function handleAdd(){
+        setMyCounter(myCounter + 1);
+        //const prevCount = document.getElementById("counter").innerText;
+        //const number = parseInt(prevCount);
+        //document.getElementById("counter").innerText = number + 1;
+        //console.log(prevCount.innerText); 
+    }
+
+    return (
+        <div>
+            <button onClick={handleAdd}>Counter Clicked</button>
+            <p>Counter: <span id="counter">{myCounter}</span></p>
+        </div>
+    );
+}
+
+ReactDOM.createRoot(document.getElementById("myDivRoot")).render(<>
+<Counter></Counter>
+<Counter></Counter>
+<Counter></Counter>
+{/*<MyFirstFN mYname={"AlMunim"}></MyFirstFN>
+<Age age={"23"}></Age>
+<Age age={"24"}></Age>
+<Age age={"25"}></Age>*/}
+</>);
+
+</script>
+
+<!-- <script src="react.js"></script> -->
+</body>
+</html>
